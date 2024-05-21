@@ -1,0 +1,100 @@
+OPENAI_API_KEY: 
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+      properties:
+        format_sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:15432/azerty_db
+    username: postgres
+    password: password
+  security:
+    ui:
+      disable: true
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId:  
+            clientSecret:  
+            redirectUri: "{baseUrl}/api/auth/oauth2/callback/{registrationId}"
+            scope:
+              - openid
+              - email
+              - profile
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+#            redirectUri: http://localhost:8080/login/oauth2/code/google
+#            successUrl: http://localhost:5173
+#            scope: openid, email, profile
+#        provider:
+#          google:
+#            authorization-uri: https://accounts.google.com/o/oauth2/auth
+#            token-uri: https://oauth2.googleapis.com/token
+#            user-info-uri: https://openidconnect.googleapis.com/v1/userinfo
+#            user-name-attribute: id
+
+debug: false
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+app:
+  auth:
+    tokenSecret:  
+    tokenExpirationMsec: 864000000
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:8080/api/auth/oauth2/redirect
+      - http://localhost:8080/
+      - http://localhost:8080/oauth2/redirect
+      - http://localhost:5173
+
+ChatGPT:
+  apiKey:  
+
+openai:
+  model:
+    completions: gpt-4-1106-preview
+    embeddings : text-embedding-ada-002
+  api:
+    url:
+      completions: https://api.openai.com/v1/chat/completions
+      embeddings: https://api.openai.com/v1/embeddings
+    key:  
+
+#embedbase:
+#  api:
+#    key: your_api_key_here
+
+timeoutHttpClient: 60
+
+github:
+  clientId:  
+  clientSecret:  
+  redirectUri: http://localhost:8080/auth/github/callback
+
+redirect:
+  baseurl: http://localhost:5173
+
+batch:
+  storage:
+    path: C:\dev\data
+  resource:
+    saveBatchSize: 20
+
+test:
+  github:
+    token:  
+

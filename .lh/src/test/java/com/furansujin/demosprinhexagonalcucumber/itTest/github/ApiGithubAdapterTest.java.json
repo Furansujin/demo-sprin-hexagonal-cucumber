@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/test/java/com/furansujin/demosprinhexagonalcucumber/itTest/github/ApiGithubAdapterTest.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1716285974315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716286080176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,15 +22,15 @@\n         // Instantiate the ApiGithubAdapter\r\n         ApiGithubAdapter githubAdapter = new ApiGithubAdapter();\r\n \r\n         // Manually set the properties\r\n-        githubAdapter.setGithubClientId(\"\");\r\n-        githubAdapter.setGithubClientSecret(\"\");\r\n+        githubAdapter.setGithubClientId(\"test\");\r\n+        githubAdapter.setGithubClientSecret(\"test\");\r\n         githubAdapter.setGithubRedirectUri(\"http://localhost:8080/auth/github/callback\");\r\n         githubAdapter.setStoragePath(\"C:\\\\dev\\\\data\\\\test\");\r\n \r\n         // Prepare the Source object with mock or real data\r\n-        Source source = new Source(SourceType.GITHUB, \"\", UUID.randomUUID(), testUserName);\r\n+        Source source = new Source(SourceType.GITHUB, \"test\", UUID.randomUUID(), testUserName);\r\n \r\n         // Call the downloadRepository method\r\n         try (Stream<File> files = githubAdapter.downloadRepository(source, testRepoName)) {\r\n             assertNotNull(files);\r\n"
+                },
+                {
+                    "date": 1716286085224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n import java.util.stream.Stream;\r\n \r\n public class ApiGithubAdapterTest {\r\n \r\n-    private final String testRepoName = \"DashBoardDividend\"; // Name of the test repository\r\n-    private final String testUserName = \"Furansujin\"; // Username for the test repository\r\n+    private final String testRepoName = \"test\"; // Name of the test repository\r\n+    private final String testUserName = \"test\"; // Username for the test repository\r\n \r\n \r\n     @Test\r\n     public void testDownloadRepository() {\r\n"
+                }
+            ],
+            "date": 1716285974315,
+            "name": "Commit-0",
+            "content": "package com.furansujin.demosprinhexagonalcucumber.itTest.github;\r\n\r\nimport com.furansujin.demosprinhexagonalcucumber.domain.entities.Source;\r\nimport com.furansujin.demosprinhexagonalcucumber.domain.entities.commun.SourceType;\r\nimport com.furansujin.demosprinhexagonalcucumber.infrastructure.adapters.gateway.source.api.ApiGithubAdapter;\r\nimport org.junit.jupiter.api.Test;\r\nimport static org.junit.jupiter.api.Assertions.*;\r\n\r\nimport java.io.File;\r\nimport java.io.IOException;\r\nimport java.util.UUID;\r\nimport java.util.stream.Stream;\r\n\r\npublic class ApiGithubAdapterTest {\r\n\r\n    private final String testRepoName = \"DashBoardDividend\"; // Name of the test repository\r\n    private final String testUserName = \"Furansujin\"; // Username for the test repository\r\n\r\n\r\n    @Test\r\n    public void testDownloadRepository() {\r\n        // Instantiate the ApiGithubAdapter\r\n        ApiGithubAdapter githubAdapter = new ApiGithubAdapter();\r\n\r\n        // Manually set the properties\r\n        githubAdapter.setGithubClientId(\"\");\r\n        githubAdapter.setGithubClientSecret(\"\");\r\n        githubAdapter.setGithubRedirectUri(\"http://localhost:8080/auth/github/callback\");\r\n        githubAdapter.setStoragePath(\"C:\\\\dev\\\\data\\\\test\");\r\n\r\n        // Prepare the Source object with mock or real data\r\n        Source source = new Source(SourceType.GITHUB, \"\", UUID.randomUUID(), testUserName);\r\n\r\n        // Call the downloadRepository method\r\n        try (Stream<File> files = githubAdapter.downloadRepository(source, testRepoName)) {\r\n            assertNotNull(files);\r\n            assertTrue(files.count() > 4, \"The stream should contain files\");\r\n\r\n            // Additional checks can be added here, similar to the previous example\r\n        } catch (IOException e) {\r\n            fail(\"IOException was thrown: \" + e.getMessage());\r\n        }\r\n    }\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/test/java/com/furansujin/demosprinhexagonalcucumber/itTest/ApiLanguageModelGatewayIT.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1716285973278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1716285973278,
+            "name": "Commit-0",
+            "content": "//package com.furansujin.demosprinhexagonalcucumber.itTest;\r\n//import com.miraisystems.getsensebackend.domain.entities.UserMessage;\r\n//import com.miraisystems.getsensebackend.domain.entities.commun.Message;\r\n//import com.miraisystems.getsensebackend.infrastructure.adapters.gateway.languageModel.api.ApiLanguageModelGateway;\r\n//import org.junit.Before;\r\n//import org.junit.Test;\r\n//import org.springframework.beans.factory.annotation.Value;\r\n//\r\n//import java.util.ArrayList;\r\n//import java.util.List;\r\n//\r\n//import static org.junit.Assert.assertNotNull;\r\n//import static org.junit.Assert.assertTrue;\r\n//\r\n//public class ApiLanguageModelGatewayIT {\r\n//\r\n//    private ApiLanguageModelGateway gateway;\r\n//\r\n//    @Value(\"${ChatGPT.apiKey}\")\r\n//    private String apiKey;\r\n//\r\n//    @Before\r\n//    public void setUp() {\r\n//        gateway = new ApiLanguageModelGateway(apiKey);\r\n//    }\r\n//\r\n//    @Test\r\n//    public void testGetAnswerAssistant_RealConnection() {\r\n//        List<Message> messages = new ArrayList<>();\r\n//        Message message = new UserMessage(\"Hello, how are you?\", null, \"Hello, how are you?\", null);\r\n//\r\n//        messages.add(message);\r\n//\r\n//        String response = gateway.getAnswerAssistant(messages);\r\n//\r\n//        assertNotNull(\"Response should not be null\", response);\r\n//        assertTrue(\"Response should contain expected text\", response.contains(\"I'm fine, thank you!\"));\r\n//    }\r\n//\r\n//    @Test\r\n//    public void testVectorize_RealConnection() {\r\n//        String textOriginal = \"This is a test string for vectorization.\";\r\n//        float[] vector = gateway.vectorize(textOriginal);\r\n//\r\n//        assertNotNull(\"Vector should not be null\", vector);\r\n//        assertTrue(\"Vector should have a length\", vector.length > 0);\r\n//    }\r\n//}\r\n"
+        }
+    ]
+}

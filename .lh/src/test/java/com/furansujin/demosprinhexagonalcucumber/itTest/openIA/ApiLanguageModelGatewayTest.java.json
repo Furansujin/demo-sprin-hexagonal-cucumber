@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/test/java/com/furansujin/demosprinhexagonalcucumber/itTest/openIA/ApiLanguageModelGatewayTest.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1716285971883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716286113881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n public class ApiLanguageModelGatewayTest {\r\n \r\n     private ApiLanguageModelGateway apiLanguageModelGateway;\r\n-    private String openaiApiKey = \"\"; // Replace with your actual API key\r\n+    private String openaiApiKey = \"test\"; // Replace with your actual API key\r\n \r\n     @BeforeEach\r\n     public void setUp() {\r\n         RestTemplate restTemplate = new RestTemplate();\r\n"
+                }
+            ],
+            "date": 1716285971883,
+            "name": "Commit-0",
+            "content": "package com.furansujin.demosprinhexagonalcucumber.itTest.openIA;\r\n\r\nimport com.furansujin.demosprinhexagonalcucumber.infrastructure.adapters.gateway.languageModel.api.ApiLanguageModelGateway;\r\nimport org.junit.jupiter.api.BeforeEach;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.springframework.http.MediaType;\r\nimport org.springframework.http.client.ClientHttpRequestInterceptor;\r\nimport org.springframework.web.client.RestTemplate;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nimport static org.junit.jupiter.api.Assertions.*;\r\n\r\npublic class ApiLanguageModelGatewayTest {\r\n\r\n    private ApiLanguageModelGateway apiLanguageModelGateway;\r\n    private String openaiApiKey = \"\"; // Replace with your actual API key\r\n\r\n    @BeforeEach\r\n    public void setUp() {\r\n        RestTemplate restTemplate = new RestTemplate();\r\n\r\n        // Create a list to hold our interceptors\r\n        List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();\r\n\r\n        // Add an interceptor to add the Authorization header\r\n        interceptors.add((request, body, execution) -> {\r\n            request.getHeaders().add(\"Authorization\", \"Bearer \" + openaiApiKey);\r\n            return execution.execute(request, body);\r\n        });\r\n\r\n        // Add another interceptor to add the Content-Type header\r\n        interceptors.add((request, body, execution) -> {\r\n            request.getHeaders().setContentType(MediaType.APPLICATION_JSON);\r\n            return execution.execute(request, body);\r\n        });\r\n\r\n        // Set the interceptors to the RestTemplate\r\n        restTemplate.setInterceptors(interceptors);\r\n\r\n        apiLanguageModelGateway = new ApiLanguageModelGateway(restTemplate);\r\n        apiLanguageModelGateway.setApiUrlCompletions(\"https://api.openai.com/v1/chat/completions\");\r\n        apiLanguageModelGateway.setApiUrlEmbeddings(\"https://api.openai.com/v1/embeddings\");\r\n        apiLanguageModelGateway.setModelCompletions(\"gpt-3.5-turbo\");\r\n        apiLanguageModelGateway.setModelEmbeddings(\"text-embedding-ada-002\");\r\n    }\r\n\r\n\r\n    @Test\r\n    public void testGetAnswerAssistant() {\r\n//        List<Message> messages = Arrays.asList(\r\n//                new UserMessage( \"Hello\",  new float[0], \"Hello, how are you ?\",   Conversation.builder().build())\r\n//        );\r\n//\r\n//        String result = apiLanguageModelGateway.getAnswerAssistant(messages, project, getPersonaPromnt());\r\n//\r\n//        assertNotNull(result); // You might want to add more specific assertions based on the expected behavior\r\n//        assertTrue(result.length() > 0);\r\n    }\r\n\r\n    @Test\r\n    public void testVectorize() {\r\n        String textOriginal = \"test text\";\r\n\r\n        float[] result = apiLanguageModelGateway.vectorize(textOriginal);\r\n\r\n        assertNotNull(result); // Again, add more specific assertions as needed\r\n        assertTrue(result.length > 0);\r\n    }\r\n\r\n    // SimpleMessage and other necessary classes should be defined or replaced with actual implementations\r\n}\r\n"
+        }
+    ]
+}
